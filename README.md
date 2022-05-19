@@ -18,7 +18,7 @@
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
+{Helpful websites as I worked on this project}
 * [KotlinLang.org](https://kotlinlang.org/docs/collection-write.html)
 * [Programiz](https://www.programiz.com/kotlin-programming/input-output)
 
