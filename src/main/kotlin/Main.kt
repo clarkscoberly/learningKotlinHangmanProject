@@ -4,13 +4,8 @@
 class Word {
     val userWord = mutableListOf("s", "h", "a", "l", "o", "m")
     val guessedLetters = mutableListOf<String>()
-    // Returns word to be checked against the user's input
+    // TODO Return word to be checked against the user's input rather than hardcoding in
 
-//    private fun getWord(): String {
-//        return "shalom"
-//    }
-
-    // TODO make the list a class property/attribute to be checked against within this fun-ction
     fun checkLetterToGuess(letter : String) : Boolean {
         /* takes a String and returns a boolean if the letter is in a list */
         if (letter in userWord && letter !in guessedLetters) {
@@ -26,8 +21,6 @@ class Word {
 }
 
 class Player {
-
-    // Properties of player:
     // Lives to calculate game ending condition
     var lives = 5
 
@@ -36,7 +29,7 @@ class Player {
         println("Guess a letter: ")
         return readLine()!!
 
-        // Eventually pass this is so that the valid letters are removed if they have previously guessed that letter.
+        //  TODO Eventually pass this is so that the valid letters are removed if they have previously guessed that letter.
         //    val validLetters = mutableListOf('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
         //    // Catch error of not inputting a valid character
         //    while (letter.toString() !in validLetters) {
@@ -69,7 +62,6 @@ fun main(args: Array<String>) {
     // Initial setup
     printGreeting()
 
-
     // Main game loop
     while (notDone) {
         // Retrieves a guess to be checked against the word selected.
@@ -78,18 +70,20 @@ fun main(args: Array<String>) {
         if (!correct) {
             player.lives -= 1
             println("You have ${player.lives} live/s left")
-        } else {
-
         }
+
         if (player.lives == 0) {
             println("---------------Game Over---------------")
             notDone = false
         }
-        // print correctly guessed letter in the right spot to be shown to user.
+
+        // prints correctly guessed letter in the right spot to be shown to user.
         for ( letter in word.guessedLetters ) {
             var index = word.userWord.indexOf(letter)
             printable[index] = letter
         }
+
+        // To make sure that there are no remaining letters to be guessed
         println(printable)
         if ("_" !in printable ) {
             notDone = false
